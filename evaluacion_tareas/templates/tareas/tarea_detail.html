@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de Tarea{% endblock %}
+
+{% block content %}
+<h2>{{ object.titulo }}</h2>
+<p><strong>Descripción:</strong> {{ object.descripcion }}</p>
+<p><strong>Prioridad:</strong> {{ object.prioridad }}</p>
+<p><strong>Vigente:</strong> {{ object.vigente }}</p>
+<p><strong>Fecha de creación:</strong> {{ object.fecha_creacion }}</p>
+<p><strong>Fecha límite:</strong> {{ object.fecha_limite }}</p>
+
+<a class="btn" href="{% url 'tarea_update' object.id %}">Editar</a>
+<a class="btn btn-danger" href="{% url 'tarea_delete' object.id %}">Eliminar</a>
+<a href="{% url 'tarea_list' %}">Volver a la lista</a>
+{% endblock %}

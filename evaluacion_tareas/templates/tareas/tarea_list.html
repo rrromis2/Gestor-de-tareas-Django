@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Tareas{% endblock %}
+
+{% block content %}
+<a class="btn" href="{% url 'tarea_create' %}">Crear nueva tarea</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Prioridad</th>
+        <th>Vigente</th>
+        <th>Acciones</th>
+    </tr>
+    {% for tarea in object_list %}
+    <tr>
+        <td>{{ tarea.id }}</td>
+        <td><a href="{% url 'tarea_detail' tarea.id %}">{{ tarea.titulo }}</a></td>
+        <td>{{ tarea.prioridad }}</td>
+        <td>{{ tarea.vigente }}</td>
+        <td>
+            <a class="btn" href="{% url 'tarea_update' tarea.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'tarea_delete' tarea.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No hay tareas registradas.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

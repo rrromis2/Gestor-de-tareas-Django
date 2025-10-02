@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestor de Tareas{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { text-decoration: none; color: blue; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 3px; }
+        .btn-danger { background-color: #f44336; }
+    </style>
+</head>
+<body>
+    <h1>{% block header %}Gestor de Tareas{% endblock %}</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

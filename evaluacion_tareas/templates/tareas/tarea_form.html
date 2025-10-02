@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Formulario de Tarea{% endblock %}
+
+{% block content %}
+<h2>{% if object %}Editar Tarea{% else %}Crear Nueva Tarea{% endif %}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button class="btn" type="submit">Guardar</button>
+    <a href="{% url 'tarea_list' %}">Cancelar</a>
+</form>
+{% endblock %}
